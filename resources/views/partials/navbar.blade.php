@@ -24,6 +24,9 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('seguros.index') }}">Seguros</a>
+        </li>
       </ul>
 
       {{--  search navbar  --}}
