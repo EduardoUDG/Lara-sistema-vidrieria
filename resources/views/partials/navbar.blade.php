@@ -19,7 +19,7 @@
           <a class="nav-link" href="#">Sucursales</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Producto</a>
+            <a class="nav-link" href="{{ route('productos.index') }}">Productos</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
