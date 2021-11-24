@@ -35,7 +35,9 @@
                         <tr>
                             <th>ID</th>
                             <th>nombre</th>
-                            <th>telefono</th>
+                            <th>apellido</th>
+                            <th>sexo</th>
+                            <th>role</th>
                             <th>acción</th>
                         </tr>
                         </thead>
@@ -44,7 +46,9 @@
                                 <tr>
                                     <th>{{ $empleado->id }}</th>
                                     <td>{{ $empleado->nombre }}</td>
-                                    <td>{{ $empleado->telefono }}</td>
+                                    <td>{{ $empleado->apellido }}</td>
+                                    <td>{{ $empleado->sexo }}</td>
+                                    <td>{{ $empleado->roles->nombre }}</td>
                                     <td  class="d-flex align-items-baseline gap-2">
                                         {{--  editar  --}}
                                         <a href="{{ route('empleados.edit', $empleado) }}" class="btn btn-outline-primary btn-sm mr-3">Editar</a>

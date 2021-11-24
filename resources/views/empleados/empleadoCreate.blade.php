@@ -18,7 +18,8 @@
 
               <div class="mb-3 input-group-md">
                 <div id="">Nombre del empleado</div>
-                <input type="text" name="nombre" class="form-control" placeholder="nombre">
+                <input type="text" name="nombre" class="form-control" placeholder="nombre"
+                value="{{ old('nombre') }}">
                 @error('nombre')
                     <small class="text-danger tet-sm">
                         <p>{{ $message }}</p>
@@ -28,7 +29,8 @@
 
               <div class="mb-3 input-group-md">
                 <div id="">Apellido del empleado</div>
-                <input type="text" name="apellido" class="form-control" placeholder="apellido">
+                <input type="text" name="apellido" class="form-control" placeholder="apellido"
+                value="{{ old('apellido') }}">
                 @error('apellido')
                     <small class="text-danger tet-sm">
                         <p>{{ $message }}</p>
@@ -38,7 +40,8 @@
 
               <div class="mb-3 input-group-md">
                 <div id="">curp del empleado</div>
-                <input type="text" name="curp" class="form-control" placeholder="curp">
+                <input type="text" name="curp" class="form-control" placeholder="curp"
+                value="{{ old('curp') }}">
                 @error('curp')
                     <small class="text-danger tet-sm">
                         <p>{{ $message }}</p>
@@ -48,7 +51,8 @@
 
               <div class="mb-3 input-group-md">
                 <div id="">Fecha de nacimiento del empleado</div>
-                <input type="date" name="fecha_nacimiento" class="form-control" placeholder="fecha nacimiento">
+                <input type="date" name="fecha_nacimiento" class="form-control" placeholder="fecha nacimiento"
+                value="{{ old('fecha_nacimiento') }}">
                 @error('fecha_nacimiento')
                     <small class="text-danger tet-sm">
                         <p>{{ $message }}</p>
@@ -71,13 +75,13 @@
 
               <div class="mb-3 input-group-md">
                 <div id="">Role del empleado</div>
-                <select class="form-select" name="sexo">
+                <select class="form-select" name="role_id">
                     <option value=""></option>
                     @foreach ($roles as $role)
                         <option value="{{ $role->id }}">{{ $role->nombre }}</option>
                     @endforeach
                 </select>
-                @error('sexo')
+                @error('role_id')
                     <small class="text-danger tet-sm">
                         <p>{{ $message }}</p>
                     </small>
@@ -86,13 +90,13 @@
 
               <div class="mb-3 input-group-md">
                 <div id="">Seguro social del empleado</div>
-                <select class="form-select" name="sexo">
+                <select class="form-select" name="seguro_id">
                     <option value=""></option>
                     @foreach ($seguros as $seguro)
                         <option value="{{ $seguro->id }}">{{ $seguro->numero }}</option>
                     @endforeach
                 </select>
-                @error('sexo')
+                @error('seguro_id')
                     <small class="text-danger tet-sm">
                         <p>{{ $message }}</p>
                     </small>
