@@ -30,6 +30,9 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('empleados.index') }}">Empleados</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('clientes.index') }}">Clientes</a>
+        </li>
       </ul>
 
       {{--  search navbar  --}}

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SeguroController;
@@ -16,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('home', function () {
+Route::get('/', function () {
     return view('home');
 })->name('home');
 
@@ -31,3 +32,5 @@ Route::resource('roles', RoleController::class)->parameters(['roles' => 'role'])
 Route::resource('seguros', SeguroController::class)->parameters(['seguros' => 'seguro'])->names('seguros');
 
 Route::resource('empleados', EmpleadoController::class)->parameters(['empleados' => 'empleado'])->names('empleados');
+
+Route::resource('clientes', ClienteController::class)->parameters(['clientes' => 'cliente'])->names('clientes');
