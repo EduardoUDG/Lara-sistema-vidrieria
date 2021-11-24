@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
+  <div class="container">
 
-    <!-- Logo -->
+    {{--  Logo  --}}
 
     <!-- Button collapse -->
     <a class="navbar-brand" href="#">Inicio</a>
@@ -9,7 +9,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- links navbar -->
+    {{--  Links navbar  --}}
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
@@ -22,11 +22,11 @@
           <a class="nav-link" href="#">Producto</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('roles.index') }}">Role</a>
+            <a class="nav-link" href="{{ route('roles.index') }}">Roles</a>
         </li>
       </ul>
 
-      <!-- serach navbar -->
+      {{--  search navbar  --}}
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Buscar...">
         <button class="btn btn-outline-success" type="submit">Busqueda</button>

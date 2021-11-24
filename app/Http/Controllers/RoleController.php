@@ -10,15 +10,13 @@ class RoleController extends Controller
 
     public function index()
     {
-        $roles = Role::all();
-
+        $roles = Role::paginate(5);
         return view('roles.roleIndex', compact('roles'));
     }
 
 
     public function create()
     {
-        // retorna la vista para crear un role
         return view('roles.roleCreate');
     }
 
@@ -27,12 +25,18 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required',
+            'telefono' => 'required|min:10'
+        ]);
+
+
         $role = new Role();
         $role->nombre = $request->nombre;
         $role->telefono = $request->telefono;
 
         $role->save();
-        return redirect()->route('roles.index');
+        return redirect()->route('roles.index')->with('info', 'Role creado con éxito ');
     }
 
 
