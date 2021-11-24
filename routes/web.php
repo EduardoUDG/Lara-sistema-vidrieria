@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('home', function () {
+    return view('home');
+});
 
 Route::resource('empleados', EmpleadoController::class)->parameters(['empleados' => 'empleado'])->names('empleados');
+
+
+Route::resource('roles', RoleController::class)->parameters(['roles' => 'role'])->names('roles');
 
