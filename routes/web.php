@@ -24,9 +24,10 @@ Route::get('home', function () {
     return view('home');
 })->name('home');
 
-// Route::resource('empleados', EmpleadoController::class)->parameters(['empleados' => 'empleado'])->names('empleados');
 
 
 Route::resource('roles', RoleController::class)->parameters(['roles' => 'role'])->names('roles');
 
 Route::resource('seguros', SeguroController::class)->parameters(['seguros' => 'seguro'])->names('seguros');
+
+Route::resource('empleados', EmpleadoController::class)->parameters(['empleados' => 'empleado'])->names('empleados');

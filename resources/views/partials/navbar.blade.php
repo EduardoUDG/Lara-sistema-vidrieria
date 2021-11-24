@@ -27,6 +27,9 @@
         <li class="nav-item">
             <a class="nav-link" href="{{ route('seguros.index') }}">Seguros</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('empleados.index') }}">Empleados</a>
+        </li>
       </ul>
 
       {{--  search navbar  --}}

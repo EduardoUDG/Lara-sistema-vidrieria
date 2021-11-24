@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Crear seguro')
+@section('title', 'Crear empleado')
 
 
 @section('content')
@@ -11,10 +11,10 @@
 
 
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <h2>Lista de seguros sociales</h2>
-                    <a href="{{ route('seguros.create') }}" class="btn btn-primary shadow">
+                    <h2>Lista de empleados</h2>
+                    <a href="{{ route('empleados.create') }}" class="btn btn-primary shadow">
                         <i class="fas fa-folder-plus"></i>
-                        Crear nuevo seguro
+                        Crear nuevo empleado
                     </a>
                 </div>
                 <hr>
@@ -27,27 +27,30 @@
                     </div>
                 @endif
 
-                {{--  Table  --}}
-                @if ($seguros->count() > 0)
+
+                @if ( $empleados->count() > 0 )
+                    {{--  Table  --}}
                     <table class="table table-hover shadow mt-5 ">
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>numero</th>
+                            <th>nombre</th>
+                            <th>telefono</th>
                             <th>acción</th>
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach ($seguros as $seguro)
+                            @foreach ($empleados as $empleado)
                                 <tr>
-                                    <th>{{ $seguro->id }}</th>
-                                    <td>{{ $seguro->numero }}</td>
+                                    <th>{{ $empleado->id }}</th>
+                                    <td>{{ $empleado->nombre }}</td>
+                                    <td>{{ $empleado->telefono }}</td>
                                     <td  class="d-flex align-items-baseline gap-2">
                                         {{--  editar  --}}
-                                        <a href="{{ route('seguros.edit', $seguro) }}" class="btn btn-outline-primary btn-sm mr-3">Editar</a>
+                                        <a href="{{ route('empleados.edit', $empleado) }}" class="btn btn-outline-primary btn-sm mr-3">Editar</a>
 
                                         {{--  Eliminar  --}}
-                                        <form action="{{ route('seguros.destroy', $seguro) }}" method="POST">
+                                        <form action="{{ route('empleados.destroy', $empleado) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
@@ -59,14 +62,13 @@
                     </table>
                 @endif
 
-
                   <br>
                   <br>
                   {{--  Panitate  --}}
                   <div class="container p-0">
                       <div class="row">
                           <div class="d-flex justify-content-end">
-                              {{ $seguros->links() }}
+                              {{ $empleados->links() }}
                           </div>
                       </div>
                   </div>
