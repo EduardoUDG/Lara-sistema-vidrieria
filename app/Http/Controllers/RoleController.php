@@ -10,7 +10,7 @@ class RoleController extends Controller
 
     public function index()
     {
-        $roles = Role::paginate(5);
+        $roles = Role::orderBY('id', 'desc')->paginate(5);
         return view('roles.roleIndex', compact('roles'));
     }
 
@@ -57,12 +57,23 @@ class RoleController extends Controller
 
     public function update(Request $request, Role $role)
     {
-        // actualiza un role
+        $request->validate([
+            'nombre' => 'required',
+            'telefono' => 'required|min:10'
+        ]);
+
+        $role->nombre = $request->nombre;
+        $role->telefono = $request->telefono;
+
+        $role->update();
+        return redirect()->route('roles.index')->with('info', 'Role actualizado con éxito ');
+
     }
 
 
     public function destroy(Role $role)
     {
-        // elimina un role
+        $role->delete();
+        return redirect()->route('roles.index')->with('info', 'Role eliminado correctamente');
     }
 }

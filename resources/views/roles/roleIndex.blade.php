@@ -28,7 +28,7 @@
                 @endif
 
                 {{--  Table  --}}
-                <table class="table table-hover shadow mt-5">
+                <table class="table table-hover shadow mt-5 ">
                     <thead>
                       <tr>
                         <th>ID</th>
@@ -45,10 +45,12 @@
                                 <td>{{ $role->telefono }}</td>
                                 <td  class="d-flex align-items-baseline gap-2">
                                     {{--  editar  --}}
-                                    <a href="" class="btn btn-outline-primary btn-sm mr-3">Editar</a>
+                                    <a href="{{ route('roles.edit', $role) }}" class="btn btn-outline-primary btn-sm mr-3">Editar</a>
 
                                     {{--  Eliminar  --}}
-                                    <form action="" method="POST">
+                                    <form action="{{ route('roles.destroy', $role) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
                                         <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
                                     </form>
                                 </td>
