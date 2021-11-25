@@ -5,6 +5,8 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SeguroController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\SucursalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,3 +39,5 @@ Route::resource('empleados', EmpleadoController::class)->parameters(['empleados'
 Route::resource('clientes', ClienteController::class)->parameters(['clientes' => 'cliente'])->names('clientes');
 
 Route::resource('productos', ProductoController::class)->parameters(['productos' => 'producto'])->names('productos');
+
+Route::resource('stores', StoreController::class)->parameters(['stores' => 'store'])->names('stores');

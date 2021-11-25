@@ -1,20 +1,20 @@
 @extends('layouts.template')
 
-@section('title', 'Productos')
+@section('title', 'Index cliente')
 
 
 @section('content')
 
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-10">
+            <div class="col-8">
 
 
                 <div class="d-flex justify-content-between align-items-baseline">
-                    <h2>Lista de productos</h2>
-                    <a href="{{ route('productos.create') }}" class="btn btn-primary shadow">
+                    <h2>Lista de sucursales</h2>
+                    <a href="{{ route('stores.create') }}" class="btn btn-primary shadow">
                         <i class="fas fa-folder-plus"></i>
-                        Crear nuevo producto
+                        Crear nueva sucursal
                     </a>
                 </div>
                 <hr>
@@ -28,33 +28,29 @@
                 @endif
 
 
-                @if ( $productos->count() > 0 )
+                @if ( $stores->count() > 0 )
                     {{--  Table  --}}
-                    <table class="table table-hover shadow mt-5 table-responsive">
+                    <table class="table table-hover shadow mt-5 ">
                         <thead>
                         <tr>
                             <th>ID</th>
                             <th>nombre</th>
-                            <th>precio</th>
-                            <th>descripcion</th>
-                            <th>existencia</th>
+                            <th>dirección</th>
                             <th>acción</th>
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach ($productos as $producto)
+                            @foreach ($stores as $store)
                                 <tr>
-                                    <th>{{ $producto->id }}</th>
-                                    <td>{{ $producto->nombre }}</td>
-                                    <td>${{ $producto->precio }}</td>
-                                    <td>{{ $producto->descripcion }}</td>
-                                    <td>{{ $producto->existencia }}</td>
+                                    <th>{{ $store->id }}</th>
+                                    <td>{{ $store->nombre }}</td>
+                                    <td>{{ $store->domicilio }}</td>
                                     <td  class="d-flex align-items-baseline gap-2">
                                         {{--  editar  --}}
-                                        <a href="{{ route('productos.edit', $producto) }}" class="btn btn-outline-primary btn-sm">Editar</a>
+                                        <a href="{{ route('stores.edit', $store) }}" class="btn btn-outline-primary btn-sm mr-3">Editar</a>
 
                                         {{--  Eliminar  --}}
-                                        <form action="{{ route('productos.destroy', $producto) }}" method="POST">
+                                        <form action="{{ route('stores.destroy', $store) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
@@ -68,11 +64,13 @@
 
                   <br>
                   <br>
-                  {{--  Panginate  --}}
+                  {{--  Panitate  --}}
                   <div class="container p-0">
                       <div class="row">
                           <div class="d-flex justify-content-end">
-                              {{ $productos->links() }}
+                              @if ( $stores->count() > 0 )
+                                  {{ $stores->links() }}
+                              @endif
                           </div>
                       </div>
                   </div>
